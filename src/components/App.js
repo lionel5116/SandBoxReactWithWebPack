@@ -7,6 +7,7 @@ import Login from './Login/Login';
 import StudentInformation from './StudentInformation/StudentInformation';
 import StudentInformationTempIDS from './StudentInformation/StudentInformationTempIDS';
 import HISDReportsMenu from './HISDReportsMenu/HISDReportsMenu.js';
+import SandboxUpload from './sandboxupload.component.js';
 import './App.css';
 
 function App() {
@@ -39,10 +40,16 @@ function App() {
             component={HISDReportsMenu}
           />
 
-<Route
+         <Route
             exact
             path='/StudentInformationTempIDS'
             component={StudentInformationTempIDS}
+          />
+
+          <Route
+            exact
+            path='/SandboxUpload'
+            component={SandboxUpload}
           />
         </HashRouter>
       </div>     

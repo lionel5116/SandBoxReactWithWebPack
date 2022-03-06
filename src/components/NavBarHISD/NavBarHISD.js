@@ -24,7 +24,7 @@ class NavBarHISD extends React.Component {
                 
                 <NavDropdown title="Actions" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#/Login">Authenticate</NavDropdown.Item>
-                    <NavDropdown.Item href="#"></NavDropdown.Item>
+                    <NavDropdown.Item href="#/SandboxUpload">File Upload Example</NavDropdown.Item>
                     <NavDropdown.Item href="#"></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>
