@@ -14,4 +14,5 @@ export default {
         }
     },
     login:[],
+    counter:0,
 }

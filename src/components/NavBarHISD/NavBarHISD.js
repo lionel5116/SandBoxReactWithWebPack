@@ -21,10 +21,10 @@ class NavBarHISD extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                
                 <NavDropdown title="Actions" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#/Login">Authenticate</NavDropdown.Item>
                     <NavDropdown.Item href="#/SandboxUpload">File Upload Example</NavDropdown.Item>
+                    <NavDropdown.Item href="#/Counterexample">Counter Example Redux Pure Function</NavDropdown.Item>
                     <NavDropdown.Item href="#"></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>
