@@ -2,7 +2,23 @@ import * as types from './actionTypes';
 import SharedApi from '../api/sharedApi';
 
 
-
+export const increment = () => {
+    return {
+      type: "INCREMENT",
+    };
+  };
+  
+  export const decrement = () => {
+    return {
+      type: "DECREMENT",
+    };
+  };
+  
+  export const reset = () => {
+    return {
+      type: "RESET",
+    };
+  };
 
 export function loadUserSuccess(userProps) {
     return { type: types.LOAD_USER_SUCCESS, userProps };

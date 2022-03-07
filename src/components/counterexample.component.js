@@ -4,7 +4,7 @@ import {
     decrement,
     increment,
     reset,
-  } from "../actions/actionTypes";
+  } from "../actions/sharedActions";
 
 
   function Counterexample() {
