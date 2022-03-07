@@ -44,7 +44,6 @@ function UploadFilesLight()
             </form>
           </Col>
         </Row>
-      
       </Container>
     </div>
   );
