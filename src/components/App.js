@@ -9,6 +9,7 @@ import StudentInformationTempIDS from './StudentInformation/StudentInformationTe
 import HISDReportsMenu from './HISDReportsMenu/HISDReportsMenu.js';
 import SandboxUpload from './sandboxupload.component.js';
 import Counterexample from './counterexample.component.js';
+import SampleReactBootStapWebPage from './SampleReactBootStapWebPage.js';
 import './App.css';
 
 function App() {
@@ -57,6 +58,12 @@ function App() {
             exact
             path='/Counterexample'
             component={Counterexample}
+          />
+
+        <Route
+            exact
+            path='/SampleReactBootStapWebPage'
+            component={SampleReactBootStapWebPage}
           />
         </HashRouter>
       </div>     
