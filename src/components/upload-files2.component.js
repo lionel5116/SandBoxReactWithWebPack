@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import { Container } from 'react-bootstrap';
-import {Button,
+import { Container,Button } from 'react-bootstrap';
+import {
   Card,
   Row,
   Col} from 'react-bootstrap';
@@ -40,7 +40,7 @@ function UploadFilesLight()
             <form onSubmit={handleSubmit}>
               <h1>React File Upload</h1>
               <input type="file" onChange={handleChange} />
-              <button type="submit">Upload</button>
+              <Button type="submit" variant="primary">Upload</Button>
             </form>
           </Col>
         </Row>
