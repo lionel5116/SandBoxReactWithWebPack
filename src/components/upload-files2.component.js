@@ -59,6 +59,11 @@ async function fetchAttachments()
   setTblFileData(_attachments)
 }
 
+function CellFormatter(cell, row) {
+  /*return (<div><a href={cell+"/"+row.age}>{cell}</a></div>);*/
+  return (<div><a href={Config.REST_URL + '/api/UploadFiles/DownloadFile/' + row.id}>{cell}</a></div>);
+}
+
   const options = {
     exportCSVText: 'Export CSV',
     insertText: 'Insert',
@@ -105,9 +110,9 @@ async function fetchAttachments()
             <BootstrapTable data={tblFiles} striped hover options={options}
               pagination           
             >
-              <TableHeaderColumn row="1" width="1%" editable={false} isKey dataField="id" hidden="true">ID</TableHeaderColumn>
-              <TableHeaderColumn row="1" width="49%" dataField="Student_ID">Student ID</TableHeaderColumn>
-              <TableHeaderColumn row="1" width="49%" dataField="Name">Name</TableHeaderColumn>           
+              <TableHeaderColumn row="1" width="33%" editable={false} isKey dataField="id" dataFormat={CellFormatter}>Download</TableHeaderColumn>
+              <TableHeaderColumn row="1" width="33%" dataField="Student_ID">Student ID</TableHeaderColumn>
+              <TableHeaderColumn row="1" width="33%" dataField="Name">Name</TableHeaderColumn>           
             </BootstrapTable>
           </Col>
         </Row>
