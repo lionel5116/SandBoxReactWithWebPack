@@ -9,7 +9,7 @@ import {
 
   function Counterexample() {
     //below references the reducer by name for the "selector" .. selector = reducer function name
-    const counter = useSelector((state) => state.counterReducer);
+    const counter = useSelector((state) => state.counter);
     //below wires up dispatch for the store
     const dispatch = useDispatch();
   
