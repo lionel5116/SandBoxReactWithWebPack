@@ -42,27 +42,7 @@ export class StudentInformationTempIDS extends Component {
         );
     }
 
-    /*
-    async loadStudentSampleData()
-    {
-        let studentSampleData = [];
-         var myAPI = new studentInfoApi;
-        studentSampleData = await myAPI.getSampleSudentDataAxios()
-        let studentRecords = studentSampleData.map(studRecItem =><ListGroup.Item key={uniqueid()} 
-        action  onClick={() => this.selectHcadRecordItem(studRecItem.FirstName)}>
-         School: {studRecItem.School} <br /> 
-         LastName: {studRecItem.LastName}  <br /> 
-         FirstName: {studRecItem.FirstName } <br /> 
-         Medical_Condition: {studRecItem.Medical_Condition} 
-        </ListGroup.Item>)
- 
-       this.setState({
-              axiosRecsStudent: studentRecords,
-               done: true
-              });
-    }
-*/
-
+  
     async fetchStudentSampleData()
     {
         let studentSampleData = [];
