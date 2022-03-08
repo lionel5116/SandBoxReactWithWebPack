@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Container,Button } from 'react-bootstrap';
 import {
@@ -37,7 +37,7 @@ function UploadFilesLight()
       console.log(response.data);
     });
 
-    fetchAttachments();
+     fetchAttachments();
   }
 
   function renderShowsTotal(start, to, total) {
@@ -48,6 +48,11 @@ function UploadFilesLight()
     );
 }
 
+useEffect(() => {
+    //may not need this, this is good for when the DOM changes and you want to perform some other action
+    //similar to componentDid and Not mount (it handles both lifecycle methods)
+});
+ 
  
 
 async function fetchAttachments()
@@ -60,7 +65,6 @@ async function fetchAttachments()
 }
 
 function CellFormatter(cell, row) {
-  /*return (<div><a href={cell+"/"+row.age}>{cell}</a></div>);*/
   return (<div><a href={Config.REST_URL + '/api/UploadFiles/DownloadFile/' + row.id}>{cell}</a></div>);
 }
 

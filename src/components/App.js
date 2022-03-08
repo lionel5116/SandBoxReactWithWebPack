@@ -10,6 +10,8 @@ import HISDReportsMenu from './HISDReportsMenu/HISDReportsMenu.js';
 import SandboxUpload from './sandboxupload.component.js';
 import Counterexample from './counterexample.component.js';
 import SampleReactBootStapWebPage from './SampleReactBootStapWebPage.js';
+import ParentComponent from './ParentComponent.js';
+
 import './App.css';
 
 function App() {
@@ -65,6 +67,13 @@ function App() {
             path='/SampleReactBootStapWebPage'
             component={SampleReactBootStapWebPage}
           />
+
+         <Route
+            exact
+            path='/ParentComponent'
+            component={ParentComponent}
+          />
+
         </HashRouter>
       </div>     
     );

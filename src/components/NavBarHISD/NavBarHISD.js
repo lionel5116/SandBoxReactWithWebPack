@@ -26,6 +26,7 @@ class NavBarHISD extends React.Component {
                     <NavDropdown.Item href="#/SandboxUpload">File Upload Example</NavDropdown.Item>
                     <NavDropdown.Item href="#/Counterexample">Counter Example Redux Pure Function</NavDropdown.Item>
                     <NavDropdown.Item href="#/SampleReactBootStapWebPage">Sample Web Page Bootstrap 5</NavDropdown.Item>
+                    <NavDropdown.Item href="#/ParentComponent">Parent Child Component Example -Props</NavDropdown.Item>
                     <NavDropdown.Item href="#"></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>
