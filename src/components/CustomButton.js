@@ -1,12 +1,13 @@
 import React from 'react'
+import {Button} from 'react-bootstrap'
 
 
 function CustomButton({handleClick,children}) {
    console.log('Rendering button - ',children)
   return (
-   <button onClick={handleClick}>
+   <Button variant="outline-secondary" onClick={handleClick}>
       {children}
-   </button>
+   </Button>
    
   )
 }

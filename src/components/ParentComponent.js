@@ -50,13 +50,13 @@ const incrementSalary = useCallback( () => {
               <Count text="Age" count={age} />
                
               
-              <CustomButton handleClick={ incrementAge } >
+              <CustomButton handleClick={incrementAge } >
                 Increment Age
               </CustomButton>
 
               <Count text="Salary" count={salary} />
 
-              <CustomButton handleClick={ incrementSalary} >
+              <CustomButton handleClick={incrementSalary} >
                 Increment Salary
               </CustomButton>
 

@@ -4,7 +4,8 @@ import {Button,
     Card,
     Container,
     Row,
-    Col} from 'react-bootstrap';
+    Col,
+  Modal} from 'react-bootstrap';
   
 import studentInfoApi from '../api/studentInfoApi';
 import Config from '../api/config';
@@ -12,10 +13,24 @@ import Config from '../api/config';
 function Admin() {
 
     const [tblFoodsToBeOmmited, settblFoodsToBeOmmitedData] = useState([])
+    const [show, setShow] = useState(false);
+    const [_nSequenceID,setSequenceID]  = useState(0)
+    const [_FOmmittedName,setFOmmittedName]  = useState("")
 
+
+    /*
     const showRowDetailInfo = (_id,_name) => (
-      console.log("Data from row from an external function",_id + ' ' + _name)
+      //console.log("Data from row from an external function",_id + ' ' + _name)
+      setShow(true)
     )
+   */
+
+    function showRowDetailInfo(_id,_name){
+       console.log("Data from row from an external function",_id + ' ' + _name)
+       setSequenceID(_id);
+       setFOmmittedName(_name)
+       setShow(true)
+    }
 
 
     async function fetchblFoodsToBeOmmitedData() {
@@ -92,6 +107,51 @@ function Admin() {
             </BootstrapTable>
           </Col>
         </Row>
+
+          <Row>
+            <Col sm={12}>
+              <Modal
+                show={show}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                    Modify Food Item
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <h4>Edit Your Item</h4>
+                  <Row>
+                    <Col sm={2}>
+                      <label>Food Item</label>
+                    </Col>
+
+                    <Col sm={4}>
+                      <input value={_FOmmittedName}>
+                      </input>
+                    </Col>
+
+                    <Col sm={2}>
+                      <label>New Value</label>
+                    </Col>
+
+                    <Col sm={4}>
+                      <input id='newValue'>
+                      </input>
+                    </Col>
+                  </Row>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="warning" onClick={() =>setShow(false)}>Submit</Button>
+                  <Button onClick={() =>setShow(false)}>Close</Button>
+                </Modal.Footer>
+              </Modal>
+            </Col>
+          </Row>
+         
+
        </Container>
     </main>
     </div>
