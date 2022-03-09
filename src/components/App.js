@@ -12,6 +12,7 @@ import Counterexample from './counterexample.component.js';
 import SampleReactBootStapWebPage from './SampleReactBootStapWebPage.js';
 import ParentComponent from './ParentComponent.js';
 import Admin from './Admin.js';
+import MultiSelect from './MultiSelect.js';
 
 import './App.css';
 
@@ -79,6 +80,12 @@ function App() {
             exact
             path='/Admin'
             component={Admin}
+          />
+
+          <Route
+            exact
+            path='/MultiSelect'
+            component={MultiSelect}
           />
 
         </HashRouter>
