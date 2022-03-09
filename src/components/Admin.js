@@ -13,18 +13,33 @@ function Admin() {
 
     const [tblFoodsToBeOmmited, settblFoodsToBeOmmitedData] = useState([])
 
+    const showRowDetailInfo = (_id,_name) => (
+      console.log("Data from row from an external function",_id + ' ' + _name)
+    )
+
 
     async function fetchblFoodsToBeOmmitedData() {
         let _FTBOM = [];
         var myAPI = new studentInfoApi;
         _FTBOM = await myAPI.fetchblFoodsToBeOmmitedData()
-        console.log(_FTBOM)
+        //console.log(_FTBOM)
         settblFoodsToBeOmmitedData(_FTBOM)
     }
 
     function CellFormatter(cell, row) {
-        return (<div><a href={Config.REST_URL + '/api/<future>/' + row.SequenceID}>{cell}</a></div>);
-      }
+
+        /* //using a hyperlink
+        return (<div><a href="#/Admin" onClick={ ()=> {
+          showRowDetailInfo(row.SequenceID,row.FOmmittedName)
+        }}>Check this out</a></div>);
+        */
+   
+    //using a button  
+    return (<div><Button variant='warning'
+                  onClick={() => {
+                    showRowDetailInfo(row.SequenceID, row.FOmmittedName)
+                   }}>Select</Button></div>);
+  }
 
     const options = {
         exportCSVText: 'Export CSV',
