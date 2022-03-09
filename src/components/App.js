@@ -11,6 +11,7 @@ import SandboxUpload from './sandboxupload.component.js';
 import Counterexample from './counterexample.component.js';
 import SampleReactBootStapWebPage from './SampleReactBootStapWebPage.js';
 import ParentComponent from './ParentComponent.js';
+import Admin from './Admin.js';
 
 import './App.css';
 
@@ -72,6 +73,12 @@ function App() {
             exact
             path='/ParentComponent'
             component={ParentComponent}
+          />
+
+          <Route
+            exact
+            path='/Admin'
+            component={Admin}
           />
 
         </HashRouter>
