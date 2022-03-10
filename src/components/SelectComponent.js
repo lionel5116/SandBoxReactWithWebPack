@@ -100,6 +100,37 @@ class SelectComponent extends React.Component {
       //console.log(newOptions)
     }
 
+    addItemsToSelect()
+    {
+        var _mySelect = document.getElementById('mySelect');
+        var _mySelect2 = document.getElementById('mySelect2');
+        
+        Array.from(_mySelect.options).forEach(function(option_element) {
+            let option_text = option_element.text;
+            let option_value = option_element.value;
+            let is_option_selected = option_element.selected;
+        
+            /*
+            console.log('Option Text : ' + option_text);
+            console.log('Option Value : ' + option_value);
+            console.log('Option Selected : ' + (is_option_selected === true ? 'Yes' : 'No'));
+            */
+
+            if(is_option_selected)
+            {
+                _mySelect2.options[_mySelect2.options.length] = new Option( option_text, option_value);
+            }
+        
+        });
+
+    }
+
+    removeItemsFromSelect()
+    {
+        var _mySelect2 = document.getElementById('mySelect2');
+        _mySelect2.remove(_mySelect2.selectedIndex);
+    }
+
    componentDidMount(){
        this.renderData()
    }
@@ -153,9 +184,33 @@ class SelectComponent extends React.Component {
                                  </Row>
                                  <br>
                                  </br>
+
                                  <Row>
-                                     <Col sm={12}>
-                                     <Button variant="warning" id="btnBindOnClick" onClick={() => this.helloWorld()}>Bind Final Array</Button>
+                                     <Col sm={6}>
+                                     <select id="mySelect"
+                                             multiple 
+                                             style={{width:150}}>
+                                            <option>football</option>
+                                            <option>Basketball</option>
+                                            <option>Hockey</option>
+                                            <option>Swiming</option>
+                                      </select>
+                                     </Col>
+                                     <Col sm={6}>
+                                     <select id="mySelect2"
+                                           multiple
+                                           style={{width:150}}>
+                                         
+                                      </select>
+                                     </Col>
+                                 </Row>
+                                 <br></br>
+                                 <Row>
+                                     <Col sm={4}>
+                                     <Button variant="success" id="btnBindOnClick" onClick={() => this.addItemsToSelect()}>Add</Button>
+                                     </Col>
+                                     <Col sm={4}>
+                                     <Button variant="danger" id="btnBindOnClick2" onClick={() => this.removeItemsFromSelect()}>Remove</Button>
                                      </Col>
                                  </Row>
 
