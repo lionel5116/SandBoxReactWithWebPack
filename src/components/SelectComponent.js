@@ -79,9 +79,9 @@ class SelectComponent extends React.Component {
     {
       var _TFBOSelect = document.getElementById('selFTBO');
 
-      //below actually works to build the options
+      //below actually works to build the options, but we have to further research how to
+      //set values
       var selectedValues = document.getElementById('selectedValues');
-
       //let text = selectedValues.value;
       
       let text = 'Eggs as an Ingredient,Seafood'
