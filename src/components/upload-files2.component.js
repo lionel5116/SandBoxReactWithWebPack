@@ -48,11 +48,12 @@ function UploadFilesLight()
     );
 }
 
+/*
 useEffect(() => {
     //may not need this, this is good for when the DOM changes and you want to perform some other action
     //similar to componentDid and Not mount (it handles both lifecycle methods)
 });
- 
+ */
  
 
 async function fetchAttachments()

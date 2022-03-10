@@ -5,7 +5,7 @@ Button,
   Card,
   Container,
   Row,
-  Col} from 'react-bootstrap'
+  Col,Form} from 'react-bootstrap'
 
 import studentInfoApi from '../api/studentInfoApi';
 import Config from '../api/config';
@@ -15,6 +15,7 @@ import Config from '../api/config';
 function MultiSelect() {
 
     const [tblFoodsToBeOmmited, settblFoodsToBeOmmitedData] = useState([])
+    const [tblFoodsToBeOmmited_FINAL, settblFoodsToBeOmmited_FINAL_Data] = useState([])
 
     const optionsArray = [
         { key: "au", label: "Australia" },
@@ -26,31 +27,48 @@ function MultiSelect() {
       ];
 
      
-  
+      /*THIS GET'S CALLED TOOOPOOO MANY TIMES - IT LOOPS*/
+      useEffect(() => {
+        fetchblFoodsToBeOmmitedData();
+        splitFTBOmmitedItemsIntoNewArray(tblFoodsToBeOmmited)
+        console.log("Calling useEffect")
+      },[]);
+     
+
+
     async function fetchblFoodsToBeOmmitedData() {
         let _FTBOM = [];
         var myAPI = new studentInfoApi;
         _FTBOM = await myAPI.fetchblFoodsToBeOmmitedData()
-        //console.log(_FTBOM)
-        settblFoodsToBeOmmitedData(_FTBOM)
+       settblFoodsToBeOmmitedData(_FTBOM)
+      
     }
 
   function showSelected(selected)
   {
-      //each time a change is made, the call back method
-      //handleOnChange adds it to an array, selected = [Poland,France]
      console.log('You selected:' + selected)
-     splitFTBOmmitedItemsIntoNewArray(tblFoodsToBeOmmited)
   }    
 
- const splitFTBOmmitedItemsIntoNewArray = (tblFoodsToBeOmmited) =>
- {
+  function splitFTBOmmitedItemsIntoNewArray(tblFoodsToBeOmmited)
+  {
+    console.log("In splitFTBOmmitedItemsIntoNewArray function already!!!")
+    var _TFBOSelect = document.getElementById('selFTBO'); 
      let _properArray = []
      for(const key in tblFoodsToBeOmmited) {
-        console.log(`${key}: ${tblFoodsToBeOmmited[key].FOmmittedName}`);
+        _properArray.push(tblFoodsToBeOmmited[key].FOmmittedName)
+        _TFBOSelect.options[_TFBOSelect.options.length] = new Option(tblFoodsToBeOmmited[key].FOmmittedName);
      }
+     
+     
+     //settblFoodsToBeOmmited_FINAL_Data(_properArray);
+     //console.log(tblFoodsToBeOmmited_FINAL)
 
- }
+    }
+
+    function helloWorld()
+    {
+
+    }
 
   return (
     <div>
@@ -58,7 +76,8 @@ function MultiSelect() {
        <Container>   
           <Row>
           <Col>
-            <Button onClick={() =>fetchblFoodsToBeOmmitedData()}>Fetch FTBO Items</Button>
+            <Button onClick={() =>helloWorld()}>Fetch FTBO Items</Button>
+            <Button variant="warning" onClick={() =>splitFTBOmmitedItemsIntoNewArray(tblFoodsToBeOmmited)}>Bind Final Array</Button>
           </Col>
           </Row> 
            <hr></hr>
@@ -72,12 +91,28 @@ function MultiSelect() {
            </Col>
 
            <Col sm={6}>
-            <DropdownMultiselect options={tblFoodsToBeOmmited} 
+            {/*
+            <DropdownMultiselect options={tblFoodsToBeOmmited_FINAL} 
                                   name="FTBOItems"
                                   handleOnChange={(selected) => {
                                     showSelected(selected);
-                                  }} />
+                                  }} /> */}
            </Col>
+
+         </Row>
+           <Col>
+           <select id="selFTBO">
+           </select>
+           </Col>
+         <Row>
+         <hr></hr>
+
+         </Row>
+           <Col>
+          
+           </Col>
+         <Row>
+         <hr></hr>
 
          </Row>
        </Container>
