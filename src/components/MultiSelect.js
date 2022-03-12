@@ -21,6 +21,8 @@ function MultiSelect() {
 
     const [tblFoodsToBeOmmited, settblFoodsToBeOmmitedData] = useState([])
     const [dropDownValues, setdropDownValueData] = useState([])
+    let optionsForMultiselect = ['Dairy Products', 'Eggs as an Ingredient', 'Fluid Dairy Milk', 'Foods Processed in a Facility that Contains Nuts', 'Milk Protein', 'Peanuts', 'Seafood', 'Soy', 'Tree Nuts', 'Wheat/Gluten', 'Whole Egg ']
+    let optionsForMultiselect2 = [];
 
     //for the child component
     const [data, setDataForChildComponent] = useState('');
@@ -62,26 +64,24 @@ function MultiSelect() {
         }))
         setdropDownValueData(_dropDownValue)
 
-
-
-
-        let _properArray = []
+        let _properArray = []  //this proper array is for trying to get the   <DropdownMultiselect options={tblFoodsToBeOmmited} to work
         for(const key in _FTBOM) {
            _properArray.push(_FTBOM[key].FOmmittedName)
+           //the line below is for setting the options for regular select - it works
            _TFBOSelect.options[_TFBOSelect.options.length] = new Option(_FTBOM[key].FOmmittedName);
         }
      
         
-    
         /*
         var _FTBOItems  = document.getElementById('FTBOItems'); 
         for(const key in _FTBOM) {
           _FTBOItems.options[_FTBOItems.options.length] = new Option(_FTBOM[key].FOmmittedName);
        }
        */
-
-        ///console.log(_properArray)
-        //settblFoodsToBeOmmitedData(_properArray)
+        console.log(_properArray)
+        optionsForMultiselect2.push(_properArray)
+        console.log(optionsForMultiselect2)
+        settblFoodsToBeOmmitedData(_properArray)  //set the data from _properyArray to tblFoodsToBeOmmited
 
       /*
       var btnObj = document.getElementById('btnBindOnClick'); 
@@ -122,6 +122,7 @@ function MultiSelect() {
           </Col>
           </Row> 
            <hr></hr>
+          <h2>Countries Static Values Col One / dynamically rendered FTBO Items but not working Col 2</h2> 
          <Row>
            <Col sm={6}>
             <DropdownMultiselect options={optionsArray} 
@@ -142,6 +143,7 @@ function MultiSelect() {
 
          </Row>
          <hr></hr>
+         <h2>Below Col one dyanically rendered from WS/ Col 2 Same but cannot get the handle change event to work</h2> 
          <Row>
            <Col sm={6}>
            <select id="selFTBO"
@@ -159,7 +161,7 @@ function MultiSelect() {
 
          </Row>
          <hr></hr>
-
+         <h2>Only one column (size = 6) child dropdown that I cannot get to work passing in data to child component</h2>
          <Row>
          <Col sm={6}>
            <ChildDropDown _FTBOM={tblFoodsToBeOmmited}/>
@@ -168,6 +170,7 @@ function MultiSelect() {
          
          
          <hr></hr>
+         <h2>Select Component trying to get the callback to work along with Sample TAB Markup and trad javascript selects</h2>
          <Row>
          <Col sm={6}>
            <SelectComponent parentCallback = {handleCallback}/>
