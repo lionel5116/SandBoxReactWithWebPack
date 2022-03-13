@@ -19,7 +19,7 @@ import Select from 'react-select'
 
 function MultiSelect() {
 
-    const [tblFoodsToBeOmmited, settblFoodsToBeOmmitedData] = useState([])
+    const [dropDownValues_FTBO, setdropDownValueDataftbo] = useState([])
     const [dropDownValues, setdropDownValueData] = useState([])
     let optionsForMultiselect = ['Dairy Products', 'Eggs as an Ingredient', 'Fluid Dairy Milk', 'Foods Processed in a Facility that Contains Nuts', 'Milk Protein', 'Peanuts', 'Seafood', 'Soy', 'Tree Nuts', 'Wheat/Gluten', 'Whole Egg ']
     let optionsForMultiselect2 = [];
@@ -71,18 +71,16 @@ function MultiSelect() {
            _TFBOSelect.options[_TFBOSelect.options.length] = new Option(_FTBOM[key].FOmmittedName);
         }
      
-        
-        /*
-        var _FTBOItems  = document.getElementById('FTBOItems'); 
-        for(const key in _FTBOM) {
-          _FTBOItems.options[_FTBOItems.options.length] = new Option(_FTBOM[key].FOmmittedName);
-       }
-       */
+      
+       /*
+        initializeFTBO(['Dairy Products', 'Eggs as an Ingredient', 'Fluid Dairy Milk', 'Foods Processed in a Facility that Contains Nuts', 'Milk Protein', 'Peanuts', 'Seafood', 'Soy', 'Tree Nuts', 'Wheat/Gluten', 'Whole Egg '])  //set the data from _properyArray to dropDownValues_FTBO
+        console.log("Should show dropDownValues_FTBO on next log call")
+        console.log(dropDownValues_FTBO)
+        console.log("The next line shows _properArray data")
         console.log(_properArray)
-        optionsForMultiselect2.push(_properArray)
-        console.log(optionsForMultiselect2)
-        settblFoodsToBeOmmitedData(_properArray)  //set the data from _properyArray to tblFoodsToBeOmmited
+      */
 
+      
       /*
       var btnObj = document.getElementById('btnBindOnClick'); 
       btnObj.click()
@@ -99,9 +97,15 @@ function MultiSelect() {
      console.log('You selected:' + selected)
   }    
 
-
+    const initializeFTBO = (data) =>
+    {
+      setdropDownValueDataftbo(data)
+    }
     function helloWorld()
     {
+      initializeFTBO(optionsForMultiselect)
+      console.log(dropDownValues_FTBO)
+      /*
       var _TFBOSelect = document.getElementById('selFTBO');
       for (var i=0; i<_TFBOSelect.length; i++){
         //console.log(_TFBOSelect.options[i].text+" "+_TFBOSelect.options[i].value)
@@ -109,6 +113,7 @@ function MultiSelect() {
           console.log(_TFBOSelect.options[i].value)
         }
       }
+      */
     }
 
   return (
@@ -134,7 +139,7 @@ function MultiSelect() {
 
            <Col sm={6}>
             
-            <DropdownMultiselect options={tblFoodsToBeOmmited} 
+            <DropdownMultiselect options={dropDownValues_FTBO} 
                                   name="FTBOItems"
                                   handleOnChange={(selected) => {
                                     showSelected(selected);
@@ -161,10 +166,10 @@ function MultiSelect() {
 
          </Row>
          <hr></hr>
-         <h2>Only one column (size = 6) child dropdown that I cannot get to work passing in data to child component</h2>
+         <h2>Only one column (size = 6) child dropdown passing in static array to populate a select - works with static</h2>
          <Row>
          <Col sm={6}>
-           <ChildDropDown _FTBOM={tblFoodsToBeOmmited}/>
+           <ChildDropDown items = {optionsForMultiselect} />
           </Col>
          </Row>
          

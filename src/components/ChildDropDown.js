@@ -1,34 +1,26 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 
+function ChildDropDown(props) {
 
+    useEffect(() => {
+        createSelectItems(props);
+      },[]);
 
-
-function ChildDropDown(_FTBOM) {
-    /*
-    var _TFBOSelect = document.getElementById('selFTBO'); 
-        let _properArray = []
-        for(const key in _FTBOM) {
-           _properArray.push(_FTBOM[key].FOmmittedName)
-           _TFBOSelect.options[_TFBOSelect.options.length] = new Option(_FTBOM[key].FOmmittedName);
-        }
-        */
   return (
-    <select  id="selFTBO"  label="Multiple Select" multiple>
+    <select  id="selFTBO2"  label="Multiple Select" multiple>
     
    </select>
   )
 
   function createSelectItems(props) {
-    let items = [];
-    console.log('The lenght of my props: ' + props.length)         
-    for (let i = 0; i <= props.length; i++) {             
-         items.push(<option key={i} value={props[i]}>{props[i]}</option>);   
-         //here I will be creating my options dynamically based on
-         //what props are currently passed to the parent component
-    }
-    console.log(items)
-    return items;
-}
+    var _TFBOSelect = document.getElementById('selFTBO2'); 
+
+    for(const key in props.items) {
+        //console.log(props.items[key]);
+        _TFBOSelect.options[_TFBOSelect.options.length] = new Option(props.items[key]);
+     }  
+    
+  }
 
 function onDropdownSelected(e) {
     console.log("THE VAL", e.target.value);
