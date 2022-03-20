@@ -70,7 +70,15 @@ export class studentInfoApi {
 
      async  fetchblFoodsToBeOmmitedData(){
         var url = Config.REST_URL + '/api/Admin/fetchFoodsToBeOmmited/'
-        //console.log(url)
+        return await axios.get(url)
+         .then(res => {
+               return res.data;
+         });
+ 
+     }
+
+     async  fetchblFoodsToBeOmmitedData_FROM_FLASK(){
+        var url =  ' http://127.0.0.1:5000/api/fetchFoodsToBeOmmited'
         return await axios.get(url)
          .then(res => {
                return res.data;

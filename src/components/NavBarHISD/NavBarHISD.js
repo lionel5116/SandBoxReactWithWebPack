@@ -29,6 +29,7 @@ class NavBarHISD extends React.Component {
                     <NavDropdown.Item href="#/ParentComponent">Parent Child Component Example -Props</NavDropdown.Item>
                     <NavDropdown.Item href="#/Admin">Administration</NavDropdown.Item>
                     <NavDropdown.Item href="#/MultiSelect">MultiSelect Example</NavDropdown.Item>
+                    <NavDropdown.Item href="#/MultiSelectFromFlask">MultiSelect Example (Flask WS)</NavDropdown.Item>
                     <NavDropdown.Item href="#"></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>

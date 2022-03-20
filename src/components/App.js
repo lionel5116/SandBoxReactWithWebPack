@@ -13,6 +13,7 @@ import SampleReactBootStapWebPage from './SampleReactBootStapWebPage.js';
 import ParentComponent from './ParentComponent.js';
 import Admin from './Admin.js';
 import MultiSelect from './MultiSelect.js';
+import MultiSelectFromFlask from './MultiSelectFromFlask.js';
 
 import './App.css';
 
@@ -86,6 +87,12 @@ function App() {
             exact
             path='/MultiSelect'
             component={MultiSelect}
+          />
+
+          <Route
+            exact
+            path='/MultiSelectFromFlask'
+            component={MultiSelectFromFlask}
           />
 
         </HashRouter>
