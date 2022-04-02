@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import {BootstrapTable,TableHeaderColumn,Grid} from "react-bootstrap-table";
+
+//import {BootstrapTable,TableHeaderColumn} from 'react-bootstrap-table-next';
 import {Button,
     Card,
     Container,
     Row,
     Col,
   Modal} from 'react-bootstrap';
+  import { Pencil  } from 'react-bootstrap-icons';
   
 import studentInfoApi from '../api/studentInfoApi';
 import Config from '../api/config';
@@ -53,8 +56,37 @@ function Admin() {
     return (<div><Button variant='warning'
                   onClick={() => {
                     showRowDetailInfo(row.SequenceID, row.FOmmittedName)
-                   }}>Select</Button></div>);
+                   }} > <Pencil /></Button></div>);
   }
+
+  //const rowStyle = { backgroundColor: '#c8e6c9', height: '30px', padding: '1px 0' };
+  //rowStyle={ rowStyle }
+  const rowStyle = { backgroundColor: '#c8e6c9' };
+
+  const rowStyle2 = (row, rowIndex) => {
+    const style = {};
+    if (row.id > 3) {
+      style.backgroundColor = '#c8e6c9';
+    } else {
+      style.backgroundColor = '#00BFFF';
+    }
+  
+    if (rowIndex > 2) {
+      style.fontWeight = 'bold';
+      style.color = 'white';
+    }
+  
+    return style;
+  };
+
+  /*
+  function rowStyle(row, index) {
+    return {
+    classes: 'text-nowrap another-class',
+    css: {"color": "blue", "font-size": "50px"}
+    };
+  }
+  */
 
     const options = {
         exportCSVText: 'Export CSV',
@@ -81,6 +113,10 @@ function Admin() {
         );
     }
 
+
+
+
+    //https://bootstrap-table-docs3.wenzhixin.net.cn/documentation/
   return (
     <div>
     <main>
@@ -95,14 +131,19 @@ function Admin() {
         </Row>
    
         <br></br>
-
+     
         <Row>
           <Col sm={12}> 
             <h2>FTBO Items</h2>
-            <BootstrapTable data={tblFoodsToBeOmmited} striped hover options={options}
-              pagination           
+            <BootstrapTable data={tblFoodsToBeOmmited} 
+              striped
+              hover 
+              options={options} 
+              pagination
+              trClassName={{ height: '5px' }}
             >
-              <TableHeaderColumn row="1" width="10%" editable={false} isKey dataField="SequenceID" dataFormat={CellFormatter}>Download</TableHeaderColumn>
+              {/*<TableHeaderColumn row="1" width="10%" editable={false} isKey dataField="SequenceID" dataFormat={CellFormatter}>Download</TableHeaderColumn>*/}
+              <TableHeaderColumn row="1" width="10%" editable={false} isKey dataField="SequenceID" dataFormat={CellFormatter} ></TableHeaderColumn>
               <TableHeaderColumn row="1" width="90%" dataField="FOmmittedName">Name</TableHeaderColumn>      
             </BootstrapTable>
           </Col>
@@ -158,5 +199,13 @@ function Admin() {
 
   )
 }
+
+
+const styles = {
+  modalInputSyle: {
+    width:300
+  },
+  rowStyle :{ backgroundColor: '#c8e6c9', height: '30px', padding: '1px 0' }
+};
 
 export default Admin

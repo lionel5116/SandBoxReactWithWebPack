@@ -36,7 +36,7 @@ export class StudentInformation extends Component {
     }
 
 
- 
+    
 
     renderShowsTotal(start, to, total) {
         return (
@@ -85,7 +85,10 @@ export class StudentInformation extends Component {
   }
 
  
+
     render() {
+
+      const rowStyle = { backgroundColor: '#c8e6c9', height: '30px', padding: '1px 0' };
 
         const options = {
             exportCSVText: 'Export CSV',
@@ -121,6 +124,7 @@ export class StudentInformation extends Component {
                                 insertRow
                                 exportCSV
                                 searchPlaceholder= {'Filter Your Search'}
+                                rowStyle={ rowStyle }
                             >
                                 <TableHeaderColumn row="1" width="1%" editable={false} isKey dataField="id" hidden="true">ID</TableHeaderColumn>
                                 {/*<TableHeaderColumn row="1" width="6%" dataField="Student_ID">Student_ID</TableHeaderColumn>*/}

@@ -14,6 +14,7 @@ import ParentComponent from './ParentComponent.js';
 import Admin from './Admin.js';
 import MultiSelect from './MultiSelect.js';
 import MultiSelectFromFlask from './MultiSelectFromFlask.js';
+import SampleBootstrapTableNext from './SampleBootstrapTableNext.js';
 
 import './App.css';
 
@@ -93,6 +94,12 @@ function App() {
             exact
             path='/MultiSelectFromFlask'
             component={MultiSelectFromFlask}
+          />
+
+          <Route
+            exact
+            path='/SampleBootstrapTableNext'
+            component={SampleBootstrapTableNext}
           />
 
         </HashRouter>
