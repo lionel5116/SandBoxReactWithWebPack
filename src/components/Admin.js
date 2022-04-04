@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {BootstrapTable,TableHeaderColumn,Grid} from "react-bootstrap-table";
+import GenericModal from './GenericModal';
 
 //import {BootstrapTable,TableHeaderColumn} from 'react-bootstrap-table-next';
 import {Button,
@@ -16,9 +17,13 @@ import Config from '../api/config';
 function Admin() {
 
     const [tblFoodsToBeOmmited, settblFoodsToBeOmmitedData] = useState([])
+
     const [show, setShow] = useState(false);
+
     const [_nSequenceID,setSequenceID]  = useState(0)
     const [_FOmmittedName,setFOmmittedName]  = useState("")
+
+    var setShowCallBackFlag = false;
 
 
     /*
@@ -27,13 +32,27 @@ function Admin() {
       setShow(true)
     )
    */
+ 
+    const incrementAge = () => {
+      console.log("In incrementAge function callback!!!")
+    }
+
+    const setPrimarySetShow = () =>
+    {
+      setShow(false)
+    }
+
 
     function showRowDetailInfo(_id,_name){
        console.log("Data from row from an external function",_id + ' ' + _name)
        setSequenceID(_id);
        setFOmmittedName(_name)
        setShow(true)
+
+       setShowCallBackFlag = true;
     }
+
+  
 
 
     async function fetchblFoodsToBeOmmitedData() {
@@ -50,13 +69,20 @@ function Admin() {
         return (<div><a href="#/Admin" onClick={ ()=> {
           showRowDetailInfo(row.SequenceID,row.FOmmittedName)
         }}>Check this out</a></div>);
-        */
+ 
    
     //using a button  
     return (<div><Button variant='warning'
                   onClick={() => {
                     showRowDetailInfo(row.SequenceID, row.FOmmittedName)
                    }} > <Pencil /></Button></div>);
+
+                   */
+
+                   return (<div><Pencil onClick={() => {
+                     showRowDetailInfo(row.SequenceID, row.FOmmittedName)
+                   }}/></div>);
+
   }
 
   //const rowStyle = { backgroundColor: '#c8e6c9', height: '30px', padding: '1px 0' };
@@ -151,6 +177,8 @@ function Admin() {
 
           <Row>
             <Col sm={12}>
+             
+              {/*
               <Modal
                 show={show}
                 size="lg"
@@ -189,6 +217,16 @@ function Admin() {
                   <Button onClick={() =>setShow(false)}>Close</Button>
                 </Modal.Footer>
               </Modal>
+           */}
+
+           <GenericModal 
+              id='newValue'
+              title='First Modal'
+              formattedName = {_FOmmittedName}
+              flag = {show}
+              handleClick={incrementAge}
+           />
+
             </Col>
           </Row>
          

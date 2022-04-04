@@ -6,7 +6,7 @@ function CustomButton({handleClick,children}) {
    console.log('Rendering button - ',children)
   return (
    <Button variant="outline-secondary" onClick={handleClick}>
-      {children}
+    {children}
    </Button>
    
   )
