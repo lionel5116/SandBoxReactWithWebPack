@@ -5,7 +5,7 @@ import {Button,
   Modal} from 'react-bootstrap';
 import CustomButton from './CustomButton';
 
-function GenericModal(props,handleClick) {
+function GenericModal(props) {
   return (
     <div>
      <Modal
@@ -40,14 +40,18 @@ function GenericModal(props,handleClick) {
                       </input>
                     </Col>
                   </Row>
+                  <Button
+                   variant="outline-secondary"
+                   onClick={props.handleClick()}>
+                    {props.close}
+                  </Button>
                 </Modal.Body>
                 <Modal.Footer>
-                  <CustomButton onClick = {handleClick}>
-                      Submit
-                 </CustomButton>
-                  <CustomButton onClick={handleClick}>
-                   Close
-                  </CustomButton>
+                <Button
+                  variant="outline-info"
+                   onClick={props.handleClickSomethingCool()}>
+                    {props.coolMessage}
+                  </Button>
                 </Modal.Footer>
               </Modal>
 

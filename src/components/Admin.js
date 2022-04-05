@@ -33,13 +33,23 @@ function Admin() {
     )
    */
  
+    /*
     const incrementAge = () => {
       console.log("In incrementAge function callback!!!")
+      setShow(false)
+    }
+  */
+
+    const closeModalPrimary = () =>
+    {
+      console.log("In closeModalPrimary function callback!!!")
+      setShow(false)
     }
 
-    const setPrimarySetShow = () =>
+    const doSomethingCool = () =>
     {
-      setShow(false)
+      console.log("In doSomethingCool function callback!!!")
+      //setShow(false)
     }
 
 
@@ -223,8 +233,13 @@ function Admin() {
               id='newValue'
               title='First Modal'
               formattedName = {_FOmmittedName}
-              flag = {show}
-              handleClick={incrementAge}
+              flag = {show}  //on your instance, have the method show hide the second modal instance
+              close = 'Close Modal'
+              coolMessage = 'Do Something Cool'
+              //the method on the right side can point to any method
+              handleClick={()=>closeModalPrimary}
+              handleClickSomethingCool={()=>doSomethingCool}
+              
            />
 
             </Col>
