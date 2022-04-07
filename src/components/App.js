@@ -17,6 +17,7 @@ import MultiSelectFromFlask from './MultiSelectFromFlask.js';
 import SampleBootstrapTableNext from './SampleBootstrapTableNext.js';
 import ControlledFormParent from './ControlledForms/ControlledFormParent.js';
 import SignupForm from './ControlledForms/SignupForm.js';
+import ComplexForm from './ControlledForms/ComplexForm.js';
 
 import './App.css';
 
@@ -114,6 +115,12 @@ function App() {
             exact
             path='/SignupForm'
             component={SignupForm}
+          />
+
+        <Route
+            exact
+            path='/ComplexForm'
+            component={ComplexForm}
           />
 
 
