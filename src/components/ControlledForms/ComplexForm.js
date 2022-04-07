@@ -6,9 +6,17 @@ import {
     Col, Form, Container
 } from 'react-bootstrap';
 
+import studentInfoApi from '../../api/studentInfoApi'
+
 //https://react-bootstrap.github.io/forms/layout/
 function ComplexForm() {
     const [student, setStudent] = useState({});
+
+    async function AddStudentComplexDataRecord() {
+        var myAPI = new studentInfoApi;
+        var _response = await myAPI.AddStudentComplexDataRecord(student)
+    }
+
 
     function handleChange (e){
         const { name, value } = e.target;
@@ -161,7 +169,7 @@ function ComplexForm() {
                     </Form.Group>
                      
                     <Button variant="primary" type="button"
-                       onClick={()=>showFormObject()}>
+                       onClick={()=>AddStudentComplexDataRecord()}>
                         Validate Object
                     </Button>
 

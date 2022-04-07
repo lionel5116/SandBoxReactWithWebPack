@@ -85,6 +85,18 @@ export class studentInfoApi {
          });
  
      }
+
+     async  AddStudentComplexDataRecord(studentData){
+         console.log(url)
+        var url = Config.REST_URL + '/api/Admin/AddStudentComplexDataRecord'
+        console.log(url)
+        console.log(studentData)
+        return await axios.post(url, studentData)
+	   .then(res => console.log(res.data));
+        
+        
+ 
+     }
 }
 
 export default studentInfoApi
