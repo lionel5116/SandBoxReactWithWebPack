@@ -31,6 +31,8 @@ class NavBarHISD extends React.Component {
                     <NavDropdown.Item href="#/MultiSelect">MultiSelect Example</NavDropdown.Item>
                     <NavDropdown.Item href="#/SampleBootstrapTableNext">Bootstrap Table Next Example</NavDropdown.Item>
                     <NavDropdown.Item href="#/MultiSelectFromFlask">MultiSelect Example (Flask WS)</NavDropdown.Item>
+                    <NavDropdown.Item href="#/ControlledFormParent">Controlled Form Example -No Validation</NavDropdown.Item>
+                    <NavDropdown.Item href="#/SignupForm">Sign Up Form - Example of Using Object with UseState</NavDropdown.Item>
                     <NavDropdown.Item href="#"></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>

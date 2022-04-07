@@ -15,6 +15,8 @@ import Admin from './Admin.js';
 import MultiSelect from './MultiSelect.js';
 import MultiSelectFromFlask from './MultiSelectFromFlask.js';
 import SampleBootstrapTableNext from './SampleBootstrapTableNext.js';
+import ControlledFormParent from './ControlledForms/ControlledFormParent.js';
+import SignupForm from './ControlledForms/SignupForm.js';
 
 import './App.css';
 
@@ -101,6 +103,19 @@ function App() {
             path='/SampleBootstrapTableNext'
             component={SampleBootstrapTableNext}
           />
+
+         <Route
+            exact
+            path='/ControlledFormParent'
+            component={ControlledFormParent}
+          />
+
+        <Route
+            exact
+            path='/SignupForm'
+            component={SignupForm}
+          />
+
 
         </HashRouter>
       </div>     
