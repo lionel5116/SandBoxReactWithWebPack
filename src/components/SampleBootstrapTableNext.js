@@ -42,32 +42,6 @@ function SampleBootstrapTableNext() {
      
      }
       function CellFormatter(cell, row) {
-
-        {/*
-        return (<div><a onClick={ ()=> {
-            showRowDetailInfo(row.SequenceID,row.FOmmittedName)
-          }}>.</a><Pencil /></div>);
-        */}
-
-        /* //using a hyperlink
-        return (<div><a href="#/Admin" onClick={ ()=> {
-          showRowDetailInfo(row.SequenceID,row.FOmmittedName)
-        }}>Check this out</a></div>);
-        */
-   
-    /*using a button  
-    return (<div><Button variant='warning'
-                  onClick={() => {
-                    showRowDetailInfo(row.SequenceID, row.FOmmittedName)
-                   }} > <Pencil /></Button></div>);
-                   */
-
-                   /*
-                   return (<div><Button variant='link'
-                            onClick={() => {
-                                showRowDetailInfo(row.SequenceID, row.FOmmittedName)
-                            }} > <Pencil />.</Button></div>);
-                            */
                             return (<div> <Pencil 
                                 onClick={() => {
                                     showRowDetailInfo(row.SequenceID, row.FOmmittedName)
@@ -109,20 +83,7 @@ const products = [
   ]
   const rowClasses = row => (row.alert ? "alert-row" : "");
   
-  /*
-  const columns = [
-    {
-      text: "Name",
-      dataField: "name",
-      formatter: (value, row) => (
-        <span>
-          {value}
-          {row.alert && <span> [ALERT-ICON]</span>}
-        </span>
-      )
-    }
-  ];
-  */
+
 
   const rowStyle3 = {  height: '10px', padding: '2px 0' };
   
@@ -136,28 +97,7 @@ const products = [
       <div style={{ padding: "20px" }}>
           <main>
               <Container>
-                  
-                  {/*
-                  <h1 className="h2">Products</h1>
-                  
-                  <ToolkitProvider
-                  keyField="id"
-                  data={tblFoodsToBeOmmited}
-                  columns={columns}
-                  rowStyle={rowStyle2}
-                  pagination={ paginationFactory()}
-                  >
-                  <BootstrapTable
-                     
-           
-                  >
-        
-                  </BootstrapTable>
-                  </ToolkitProvider>
-                  <h1 className="h2">State</h1>
-                  <button onClick={() => fetchblFoodsToBeOmmitedData()}>fetch Data and Bind</button>
-                */}
-                                    <ToolkitProvider
+                   <ToolkitProvider
                    keyField="id"
                    data={tblFoodsToBeOmmited}
                    columns={columns}

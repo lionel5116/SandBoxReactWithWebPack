@@ -1,16 +1,67 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Button,
         Card,
         Container,
         Row,
         Col,
         Image} from 'react-bootstrap';
+        
+//import {Alert} from 'react-alert'
+import AlertDismissible from './AlertDismissible';
+
 
 //https://react-bootstrap.github.io/getting-started/introduction
 function SampleReactBootStapWebPage() {
+    const [showAlert, setShowAlert] = useState(false);
+    const [successMsg,setsuccessMsg] = useState('');
+    const [msgBody,setmsgBody] = useState('');
+    const [msgBody2,setmsgBody2] = useState('');
+    
+    const openAlert = (e) => {
+        e.preventDefault();
+        setsuccessMsg('alert alert-success')
+        setmsgBody("Student Information Add/Update Information")
+        setmsgBody2("Successfully wrote record!!!")
+        setShowAlert(true);
+    }
+
+    const closeAlert = (e) => {
+        e.preventDefault();
+        setShowAlert(false);
+    }
+
+    const openAlertError = (e) => {
+        e.preventDefault();
+        setsuccessMsg('alert alert-danger')
+        setmsgBody("Student Information Add/Update Information")
+        setmsgBody2("There was an issue writing the record !!!")
+        setShowAlert(true);
+    }
+
   return (
     <div className='SampleReactBootStapWebPage'>
-     <main>
+          <AlertDismissible 
+             show = {showAlert}
+             toogleAlert = {(e) => closeAlert(e)}
+             msgClass = {successMsg}
+             msgBody = {msgBody}
+             msgBody2 = {msgBody2}
+            />
+           {/*
+           {showAlert && (
+           <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <hr/>
+                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                <Button
+                        variant="warning" onClick={() => closeNominations()}>
+                        Dismiss
+                </Button>
+            </div>
+            )}
+           */}
+       <main>
          <Container>
                   <Row className='px-4 my-5'>
                       <Col sm={8}>
@@ -90,6 +141,17 @@ function SampleReactBootStapWebPage() {
                         </Card>
                     </Col>
                    
+                  </Row>
+
+                  <Row>
+                    <Button
+                        variant="primary" onClick={(e) => openAlert(e)}>
+                         Show Alert
+                    </Button>
+                    <Button
+                        variant="danger" onClick={(e) => openAlertError(e)}>
+                         Show Danger Alert
+                    </Button>
                   </Row>
          </Container>
      </main>
